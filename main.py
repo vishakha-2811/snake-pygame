@@ -13,7 +13,7 @@ class SNAKE:
             x_pos=int(block.x*cell_size)
             y_pos=int(block.y*cell_size)
             block_rect=pygame.Rect(x_pos,y_pos,cell_size,cell_size)
-            pygame.draw.rect(screen,(183,111,122),block_rect)
+            pygame.draw.rect(screen,(70,130,180),block_rect)
 
     def move_snake(self):
         if self.new_block==True:
@@ -40,8 +40,8 @@ class FRUIT:
         screen.blit(apple,fruit_rect)
 
     def randomize(self):
-        self.x= random.randint(1,cell_number-2)
-        self.y= random.randint(1,cell_number-2)
+        self.x= random.randint(2,cell_number-3)
+        self.y= random.randint(2,cell_number-3)
         self.pos=Vector2(self.x,self.y)
 
 class MAIN:
@@ -112,6 +112,7 @@ while True:
                     main_game.snake.direction=Vector2(1,0)
     
     screen.fill((175,215,70))
+    pygame.draw.rect(screen, (0,0,0), (cell_size, cell_size, (cell_number-2)*cell_size, (cell_number-2)*cell_size), 5)
     main_game.draw_elements()
     pygame.display.update()
     clock.tick(60)
